@@ -1,0 +1,32 @@
+<html ng-app="CalcApp">
+
+<head>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div ng-controller="calcCtrl as c1">
+        <input type="text" ng-model="c1.firstNum"></input> 
+        <span>{{c1.operation}}</span>
+        <input type="text" ng-model="c1.secondNum"></input> 
+        <button ng-click="c1.equalsResult('=')">=</button>
+        <input type="checkbox" ng-model="c1.checkBoxCtrl"></input>
+        <span ng-if="c1.checkBoxCtrl">NG IF ----> {{c1.resultvalue}}</span>
+        <span ng-show="c1.checkBoxCtrl">NG SHOW -----> {{c1.resultvalue}}</span>
+        <span ng-hide="c1.checkBoxCtrl">NG HIDE -----> {{c1.resultvalue}}</span>
+        <p ng-repeat="i in c1.myList"> Hello Repeat </p>
+        <div ng-repeat="i in c1.nameList"> 
+            <p> <span> {{$index}} --- {{i.name}} </span>  --- <span> {{i.age}} </span> <hr> </p>
+           
+        </div>
+         <p>
+            <span> Choose Operation : </span> 
+            <button ng-click="c1.submitButton('+')">+</button>
+            <button ng-click="c1.submitButton('-')">-</button>
+            <button ng-click="c1.submitButton('*')">*</button>
+            <button ng-click="c1.submitButton('/')">/</button>
+            
+         </p>
+    </div>
+</body>
