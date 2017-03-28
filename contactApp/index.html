@@ -1,0 +1,61 @@
+<html ng-app="ContactApp">
+
+<head>
+    <title>Contact App</title>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="appConfig.service.js"></script>
+    <script src="appName.service.js"></script>
+    <script src="contact.controller.js"></script>
+    <script src="contactdata.service.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <div ng-controller="ContactCtrl as c1">
+        <div class="container">
+            <div class="row">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat = "contact in c1.contacts" ng-click="c1.selectContact($index)">
+                        {{contact.name.first + " " + contact.name.last}}
+                    </li>    
+                </ul>    
+            </div>  
+
+            <div class="row">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img ng-src="{{c1.selectedContact.picture.medium}}"></img> 
+                        </a>
+                    </div>    
+                    <div class="media-body">
+                        <h4 class="media-heading"> {{c1.selectedContact.name.first + "  " + c1.selectedContact.name.last}}</h4>
+                        <p>
+                            <h5> Location </h5>
+                        </p>    
+                        <p> 
+                            <h6>
+                                {{c1.selectedContact.location.street + " " + c1.selectedContact.location.city + " " + c1.selectedContact.location.state}} 
+                           </h6>
+                        </p> 
+                        <p>
+                            <h5> Phone </h5>
+                        </p>
+                        <p> 
+                            <h6>
+                                {{c1.selectedContact.cell}} 
+                           </h6>
+                        </p>    
+                    </div>    
+
+                </div> 
+            </div>
+
+        </div>   
+    </div>    
+</body>
+
+</html>
